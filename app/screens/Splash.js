@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
-import colors from '../config/colors';
 import text from '../config/text';
 
 const Splash = (props) => {
@@ -17,7 +16,6 @@ const Splash = (props) => {
             <Text style={text.splash}>NBA STATS</Text>
             
             <TouchableOpacity
-                // style={styles.button}
                 onPress={handlePress}>
                 <Image
                   source={require("../assets/ball.png")}
