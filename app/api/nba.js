@@ -8,10 +8,18 @@ const settings = {
     }
 }
 
-export const fetchTeamsByConf = (conf) => {
+export const fetchTeamsByConf = (conf, func, setLoading) => {
+    setLoading(true);
     const url = `https://api-nba-v1.p.rapidapi.com/teams/confName/${conf}`;
     
     fetch(url, settings)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(response => response.json())
+        .then(res => {
+            func(res.api.teams);
+            setLoading(false);
+        })
+        .catch(err => {
+            console.log(err);
+            setLoading(false);
+        })
 };

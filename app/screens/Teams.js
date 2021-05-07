@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { fetchTeamsByConf } from '../api/nba';
+import Screen from '../components/Screen';
+import TeamList from '../components/TeamList';
+import TeamSwitch from '../components/TeamSwitch';
 
 const Teams = (props) => {
-
-    useEffect(() => {
-        console.log('hit');
-        const teams = fetchTeamsByConf('east');
-        console.log(teams);
-    }, []);
+    const [conf, setConf] = useState('west');
 
     return (
-        <View style={styles.container}>
-
-        </View>
+        <Screen>
+            <View style={styles.container}>
+                <TeamSwitch conf={conf} setConf={setConf} />
+                <TeamList conf={conf} />
+            </View>
+        </Screen>
     );
 };
 
