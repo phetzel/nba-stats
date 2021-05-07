@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
 
 import text from '../config/text';
 
@@ -7,13 +7,13 @@ const TeamListItem = ({ allStar, fullName, logo, teamId }) => {
     if (allStar === '1') return null;
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container}>
             <Image 
                 resizeMode="contain"
                 source={{uri: logo}} 
                 style={styles.logo} />
             <Text style={text.listItem}>{fullName}</Text>
-        </View>
+        </TouchableOpacity>
     );
 };
 const styles = StyleSheet.create({

@@ -3,7 +3,7 @@ import { Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'reac
 
 import text from '../config/text';
 
-const Splash = (props) => {
+const Splash = ({ navigation }) => {
     const handlePress = () => {
         console.log('hit');
     }
@@ -16,7 +16,7 @@ const Splash = (props) => {
             <Text style={text.splash}>NBA STATS</Text>
             
             <TouchableOpacity
-                onPress={handlePress}>
+                onPress={() => navigation.navigate("Teams")}>
                 <Image
                   source={require("../assets/ball.png")}
                   style={styles.button}>
